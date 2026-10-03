@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from abc import ABC, abstractmethod
 
 
@@ -49,12 +50,10 @@ def main() -> None:
     # 1. Register the new Scooter vehicle type dynamically
     factory.register_kind("scooter", Scooter)
 
-    # Output existing vehicles
+    # 2. Print existing and newly registered vehicle modes
     print(factory.create("bus").mode())
     print(factory.create("train").mode())
     print(factory.create("bike").mode())
-
-    # 2. Instantiate and print the mode for the new vehicle type
     print(factory.create("scooter").mode())
 
 
