@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from typing import Any, Protocol
+from typing import Any, Dict, Optional, Protocol, Set
 
 
 class Observer(Protocol):
@@ -9,10 +9,10 @@ class Observer(Protocol):
 
 class NewsSubject:
     def __init__(self) -> None:
-        self._subscribers: dict[Observer, set[str] | None] = {}
+        self._subscribers: Dict[Observer, Optional[Set[str]]] = {}
 
     def subscribe(
-        self, observer: Observer, topics: set[str] | None = None
+        self, observer: Observer, topics: Optional[Set[str]] = None
     ) -> None:
         self._subscribers[observer] = topics
 
